@@ -1,129 +1,15 @@
 <!doctype html>
 <html lang="pt-BR">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="FIN360 — controle financeiro, planejamento, cartões, milhas, investimentos e projetos em um só lugar." />
-  <meta name="theme-color" content="#0f172a" />
-  <title>FIN360 | Sua vida financeira em um só lugar</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css" />
-</head>
-<body>
-  <header class="site-header">
-    <a class="brand" href="#inicio" aria-label="FIN360 início">
-      <span class="brand-mark">F</span>
-      <span>FIN360</span>
-    </a>
-
-    <nav class="desktop-nav" aria-label="Navegação principal">
-      <a href="#recursos">Recursos</a>
-      <a href="#seguranca">Segurança</a>
-      <a href="#sobre">Sobre</a>
-    </nav>
-
-    <a class="button button-small" href="https://360finances.vercel.app/" rel="noopener">Entrar no aplicativo</a>
-  </header>
-
-  <main>
-    <section class="hero" id="inicio">
-      <div class="hero-copy">
-        <span class="eyebrow">GESTÃO FINANCEIRA COMPLETA</span>
-        <h1>Controle sua vida financeira com visão de 360°.</h1>
-        <p>
-          Organize lançamentos, contas programadas, cartões, milhas, investimentos,
-          projetos e metas em uma única plataforma segura.
-        </p>
-        <div class="hero-actions">
-          <a class="button" href="https://360finances.vercel.app/" rel="noopener">Entrar com segurança</a>
-          <a class="button button-secondary" href="#recursos">Conhecer recursos</a>
-        </div>
-        <div class="trust-row">
-          <span>✓ Login protegido</span>
-          <span>✓ Acesso no celular e notebook</span>
-          <span>✓ Dados organizados</span>
-        </div>
-      </div>
-
-      <div class="hero-panel" aria-label="Resumo das funcionalidades do FIN360">
-        <div class="panel-top">
-          <div>
-            <span class="panel-kicker">FIN360</span>
-            <h2>Visão financeira integrada</h2>
-          </div>
-          <span class="status">Online</span>
-        </div>
-        <div class="metric-grid">
-          <article><span>Planejamento</span><strong>Mensal e anual</strong></article>
-          <article><span>Investimentos</span><strong>Aportes e resgates</strong></article>
-          <article><span>Cartões</span><strong>Parcelas e milhas</strong></article>
-          <article><span>Projetos</span><strong>Previsto x realizado</strong></article>
-        </div>
-        <div class="mini-chart" aria-hidden="true">
-          <span style="height: 34%"></span>
-          <span style="height: 48%"></span>
-          <span style="height: 42%"></span>
-          <span style="height: 66%"></span>
-          <span style="height: 58%"></span>
-          <span style="height: 82%"></span>
-          <span style="height: 72%"></span>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" id="recursos">
-      <div class="section-heading">
-        <span class="eyebrow">RECURSOS</span>
-        <h2>Tudo o que você precisa para acompanhar suas finanças</h2>
-      </div>
-      <div class="feature-grid">
-        <article class="feature-card"><span class="icon">↗</span><h3>Lançamentos</h3><p>Cadastre, edite, filtre e acompanhe receitas, despesas e movimentações.</p></article>
-        <article class="feature-card"><span class="icon">▦</span><h3>Planejamento</h3><p>Programe contas recorrentes e visualize o orçamento por mês ou ano.</p></article>
-        <article class="feature-card"><span class="icon">▣</span><h3>Cartões e milhas</h3><p>Controle faturas, parcelas, limites e pontos gerados automaticamente.</p></article>
-        <article class="feature-card"><span class="icon">⌁</span><h3>Investimentos</h3><p>Acompanhe saldo, aportes, rendimentos, resgates e evolução patrimonial.</p></article>
-        <article class="feature-card"><span class="icon">◎</span><h3>Projetos e metas</h3><p>Compare valores previstos e realizados, com histórico de movimentações.</p></article>
-        <article class="feature-card"><span class="icon">⇄</span><h3>Importação e backup</h3><p>Importe Excel, OFX, CSV ou JSON e mantenha seus dados organizados.</p></article>
-      </div>
-    </section>
-
-    <section class="section security" id="seguranca">
-      <div>
-        <span class="eyebrow">SEGURANÇA</span>
-        <h2>Seu acesso permanece dentro do aplicativo</h2>
-        <p>
-          Este site é apenas a apresentação pública do FIN360. Ao clicar em entrar,
-          você será direcionada para o aplicativo protegido por autenticação.
-        </p>
-      </div>
-      <a class="button" href="https://360finances.vercel.app/" rel="noopener">Abrir FIN360</a>
-    </section>
-
-    <section class="section about" id="sobre">
-      <div class="section-heading">
-        <span class="eyebrow">SOBRE</span>
-        <h2>Uma plataforma criada para centralizar sua vida financeira</h2>
-      </div>
-      <p>
-        O FIN360 reúne controle diário, planejamento, cartões, milhas, investimentos,
-        projetos, metas, relatórios e importação de dados em uma única experiência.
-      </p>
-    </section>
-  </main>
-
-  <footer>
-    <div>
-      <strong>FIN360</strong>
-      <span>© <span id="year"></span> Todos os direitos reservados.</span>
-    </div>
-    <div class="footer-links">
-      <a href="privacidade.html">Política de Privacidade</a>
-      <a href="termos.html">Termos de Uso</a>
-      <a href="https://360finances.vercel.app/" rel="noopener">Entrar</a>
-    </div>
-  </footer>
-
-  <script src="script.js"></script>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#071d19" />
+    <meta name="description" content="FIN360 — sua vida financeira em um só lugar." />
+    <link rel="manifest" href="/manifest.webmanifest" />
+    <title>FIN360</title>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
 </html>

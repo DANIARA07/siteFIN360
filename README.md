@@ -1,19 +1,23 @@
-# Site institucional FIN360
+# FIN360 3.1.0
 
-Este pacote é separado do aplicativo e não altera nenhum arquivo do FIN360.
+Aplicativo de gestão financeira pessoal com autenticação obrigatória pelo Firebase e fluxo de login estabilizado para Vercel, notebook e iPhone.
 
-## Publicação recomendada
+## O que mudou
 
-1. Crie um novo repositório no GitHub, por exemplo: `fin360-site`.
-2. Envie os arquivos deste pacote para esse novo repositório.
-3. Na Vercel, crie um novo projeto ligado ao repositório `fin360-site`.
-4. Framework Preset: `Other`.
-5. Build Command: deixe vazio.
-6. Output Directory: deixe vazio.
-7. Publique.
+- a tela de carregamento não fica aberta indefinidamente;
+- após alguns segundos sem resposta, o aplicativo abre o login com uma mensagem clara;
+- quando faltam variáveis do Firebase, a própria tela informa quais são;
+- o painel nunca abre sem usuário autenticado;
+- o modo demonstração continua removido;
+- sessão persistente e recuperação de senha continuam disponíveis.
 
-O botão **Entrar no aplicativo** direciona para:
+## Antes de publicar
 
-https://360finances.vercel.app/
+1. Crie ou abra seu projeto no Firebase.
+2. Em **Authentication → Sign-in method**, habilite **E-mail/senha**.
+3. Em **Authentication → Users**, crie seu usuário de acesso.
+4. Copie as configurações do aplicativo Web para as variáveis `VITE_FIREBASE_*` na Vercel.
+5. Em **Authentication → Settings → Authorized domains**, inclua `360finances.vercel.app`.
+6. Faça um novo deploy sem reutilizar o cache anterior.
 
-Para alterar esse endereço, substitua as ocorrências da URL no arquivo `index.html`.
+Consulte `GUIA_VERCEL_FIREBASE_3_1.md` para o passo a passo completo.

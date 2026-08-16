@@ -1,0 +1,10 @@
+{
+  "name": "FIN360",
+  "short_name": "FIN360",
+  "description": "Sua vida financeira em um só lugar.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#071d19",
+  "theme_color": "#071d19",
+  "icons": []
+}
