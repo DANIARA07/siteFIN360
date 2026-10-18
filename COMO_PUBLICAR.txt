@@ -1,0 +1,10 @@
+FIN360 SITE - PACOTE COMPLETO
+
+1. Extraia este ZIP.
+2. No GitHub DANIARA07/siteFIN360, abra a raiz do repositorio.
+3. Use Adicionar arquivo > Carregar arquivos e envie os arquivos e pastas que estao DENTRO de siteFIN360-main (nao a pasta externa).
+4. Confirme o commit. A Vercel deve gerar um novo deploy automaticamente.
+5. Abra https://site-fin-360.vercel.app/ e atualize com Ctrl+Shift+R.
+
+Arquivos-chave: index.html, styles.css e public/fin360-logo-oficial.svg.
+Nao substitua o projeto 360finances com este ZIP.

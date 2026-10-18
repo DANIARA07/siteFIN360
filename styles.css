@@ -128,3 +128,22 @@ footer > div { display: flex; align-items: center; gap: 18px; flex-wrap: wrap; }
 
 /* FIN360 brand 2026 */
 :root{--bg:#101613;--surface:#202a24;--surface-2:#273229;--primary:#c5f52d;--primary-strong:#a8db13;}
+
+/* FIN360 | Identidade visual oficial - substitui apenas a apresentacao */
+:root{--bg:#101613;--surface:#13231c;--surface-2:#1b2b23;--border:rgba(197,245,45,.17);--text:#fff;--muted:#b8c5bf;--primary:#C5F52D;--primary-strong:#C5F52D;--shadow:0 24px 80px rgba(0,0,0,.36)}
+body{background:radial-gradient(circle at 88% 20%,rgba(197,245,45,.12),transparent 32rem),linear-gradient(135deg,#081311 0%,#101613 100%);color:var(--text)}
+.site-header{background:rgba(8,20,16,.93);border-bottom-color:var(--border)}
+.brand{gap:0}.brand-logo{display:block;width:183px;max-width:38vw;height:auto;object-fit:contain}
+.button,.button-small{background:var(--primary);color:#101613!important;border-color:var(--primary);font-weight:800;box-shadow:0 10px 32px rgba(197,245,45,.16)}
+.button:hover{background:var(--primary);color:#101613!important;filter:brightness(1.06)}
+.button-secondary{background:transparent;color:#fff!important;border:1px solid rgba(197,245,45,.25);box-shadow:none}
+.button-secondary:hover{background:rgba(197,245,45,.08);color:#fff!important}
+.eyebrow,.panel-kicker,.feature-card .icon,.status{color:var(--primary)}
+.hero-panel{background:linear-gradient(145deg,rgba(10,39,27,.95),rgba(8,29,23,.98));border-color:var(--border)}
+.metric-grid article,.feature-card{background:rgba(13,43,30,.6);border-color:var(--border)}
+.status{background:rgba(197,245,45,.08);border-color:rgba(197,245,45,.4)}
+.mini-chart{background:rgba(2,17,12,.55)}
+.mini-chart span{background:linear-gradient(180deg,#C5F52D,#81b51a);opacity:1}
+.feature-card .icon{background:rgba(197,245,45,.08)}
+.trust-row{color:var(--muted)}
+@media(max-width:620px){.brand-logo{width:138px;max-width:38vw}}
