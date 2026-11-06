@@ -16,7 +16,7 @@ export function Landing({ onEnter }: Props) {
         <div className="heroCopy">
           <span className="eyebrow">CONTROLE FINANCEIRO COMPLETO</span>
           <h1>Sua vida financeira, organizada em <em>360 graus.</em></h1>
-          <p>Orçamento, cartões, recorrências, metas, investimentos e milhas em uma experiência simples e moderna.</p>
+          <p>Orçamento, cartões, recorrências, metas, investimentos e programas de pontos em uma experiência simples e moderna.</p>
           <div className="heroButtons">
             <button className="primary large" onClick={onEnter}>Começar agora</button>
             <button className="ghost large" onClick={onEnter}>Ver demonstração</button>
@@ -37,7 +37,7 @@ export function Landing({ onEnter }: Props) {
         {[
           ['Orçamento inteligente','Compare o planejado com o realizado e acompanhe seus limites.'],
           ['Cartões e faturas','Visualize compras, parcelas, limites e vencimentos em um só lugar.'],
-          ['Milhas e patrimônio','Acompanhe pontos, investimentos, metas e evolução patrimonial.']
+          ['Programas de pontos e patrimônio','Acompanhe pontos, investimentos, metas e evolução patrimonial.']
         ].map(([title,text]) => <article key={title}><span>✦</span><h3>{title}</h3><p>{text}</p></article>)}
       </section>
       <footer className="container footer">© 2026 FIN360 · Privacidade · Termos</footer>

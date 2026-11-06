@@ -1,0 +1,15 @@
+FIN360 4.3.2 - PACOTE LIMPO PARA GITHUB
+
+Este pacote possui menos de 100 arquivos e pode ser enviado de uma só vez pelo GitHub.
+
+COMO PUBLICAR:
+1. Extraia o ZIP.
+2. No GitHub, abra Add file > Upload files.
+3. Arraste TODO O CONTEUDO INTERNO da pasta extraida.
+4. Confirme o commit na branch main.
+5. Aguarde a Vercel concluir o deploy.
+
+IMPORTANTE:
+- Nao envie node_modules, dist ou outros ZIPs antigos.
+- As variaveis do Firebase continuam configuradas na Vercel e nao ficam dentro deste ZIP.
+- Este pacote preserva o codigo funcional da versao 4.3.2 e remove apenas arquivos antigos de documentacao e copias duplicadas.

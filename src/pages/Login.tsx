@@ -21,6 +21,8 @@ import {
 type Props = {
   onSuccess: (user: User) => void
   startupMessage?: string
+  initialMode?: 'login' | 'register'
+  institutionalSiteUrl?: string
 }
 
 type Feedback = {
@@ -83,8 +85,12 @@ function withTimeout<T>(promise: Promise<T>, milliseconds = 15000): Promise<T> {
   })
 }
 
-export function Login({ onSuccess, startupMessage }: Props) {
-  const [mode, setMode] = useState<'login' | 'register'>('login')
+export function Login({ onSuccess, startupMessage, initialMode = 'login', institutionalSiteUrl = 'https://site-fin-360.vercel.app/' }: Props) {
+  const [mode, setMode] = useState<'login' | 'register'>(() => {
+    const params = new URLSearchParams(window.location.search)
+    const requested = params.get('action') || params.get('mode')
+    return requested === 'register' ? 'register' : initialMode
+  })
   const [name, setName] = useState('')
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
@@ -328,6 +334,7 @@ export function Login({ onSuccess, startupMessage }: Props) {
         )}
 
         <small>O painel permanece bloqueado enquanto não houver um usuário autenticado.</small>
+        <a className="authBackToSite" href={institutionalSiteUrl}>← Voltar ao site FIN360</a>
       </form>
     </main>
   )

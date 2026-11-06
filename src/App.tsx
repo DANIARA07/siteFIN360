@@ -2,12 +2,24 @@ import { useEffect, useState } from 'react'
 import { onAuthStateChanged, signOut, type User } from 'firebase/auth'
 import { Login } from './pages/Login'
 import { Dashboard } from './pages/Dashboard'
+import { Admin } from './pages/Admin'
 import { auth, firebaseConfigured, prepareAuthPersistence } from './lib/firebase'
 
 type AuthStatus = 'checking' | 'signed-out' | 'signed-in' | 'signing-out'
 
 const AUTH_CHECK_TIMEOUT = 6500
-const INSTITUTIONAL_SITE_URL = 'https://site-fin-360.vercel.app/'
+const INSTITUTIONAL_SITE_URL = (import.meta.env.VITE_INSTITUTIONAL_SITE_URL || 'https://site-fin-360.vercel.app/').replace(/\/+$/, '') + '/'
+const safeSiteReturnUrl = () => {
+  try {
+    const requested = new URLSearchParams(window.location.search).get('returnTo')
+    if (requested) {
+      const url = new URL(requested)
+      const allowed = new URL(INSTITUTIONAL_SITE_URL)
+      if (url.origin === allowed.origin) return url.toString()
+    }
+  } catch { /* usa o site padrao */ }
+  return INSTITUTIONAL_SITE_URL
+}
 
 const applySavedTheme = () => {
   try {
@@ -35,6 +47,10 @@ export default function App() {
   const [status, setStatus] = useState<AuthStatus>('checking')
   const [user, setUser] = useState<User | null>(null)
   const [startupMessage, setStartupMessage] = useState('Verificando sua sessão com segurança.')
+  const [initialAuthMode] = useState<'login' | 'register'>(() => {
+    const action = new URLSearchParams(window.location.search).get('action')
+    return action === 'register' ? 'register' : 'login'
+  })
 
   useEffect(() => {
     applySavedTheme()
@@ -90,6 +106,14 @@ export default function App() {
   const handleLoginSuccess = (authenticatedUser: User) => {
     setUser(authenticatedUser)
     setStatus('signed-in')
+    try {
+      const url = new URL(window.location.href)
+      url.searchParams.delete('action')
+      url.searchParams.delete('from')
+      window.history.replaceState({}, document.title, url.pathname + url.search + url.hash)
+    } catch {
+      // A autenticação continua mesmo se o navegador bloquear a limpeza da URL.
+    }
   }
 
   const logout = async () => {
@@ -114,7 +138,7 @@ export default function App() {
     }
 
     window.setTimeout(() => {
-      window.location.replace(INSTITUTIONAL_SITE_URL)
+      window.location.replace(safeSiteReturnUrl())
     }, 1800)
   }
 
@@ -129,7 +153,7 @@ export default function App() {
           <p>Sua sessão foi encerrada com segurança.</p>
           <small>Redirecionando para o site do FIN360…</small>
           <div className="logoutProgress" aria-hidden="true"><i /></div>
-          <a className="logoutFallback" href={INSTITUTIONAL_SITE_URL}>Voltar ao site agora</a>
+          <a className="logoutFallback" href={safeSiteReturnUrl()}>Voltar ao site agora</a>
         </section>
       </main>
     )
@@ -149,6 +173,7 @@ export default function App() {
   }
 
   if (status === 'signed-in' && user) {
+    if (window.location.pathname.startsWith('/admin')) return <Admin user={user} onLogout={logout} />
     return <Dashboard onLogout={logout} userId={user.uid} userName={user.displayName || user.email || 'Usuário'} />
   }
 
@@ -156,6 +181,8 @@ export default function App() {
     <Login
       onSuccess={handleLoginSuccess}
       startupMessage={startupMessage}
+      initialMode={initialAuthMode}
+      institutionalSiteUrl={INSTITUTIONAL_SITE_URL}
     />
   )
 }
